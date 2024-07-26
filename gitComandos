@@ -1,0 +1,112 @@
+# ===================
+# GITHUB COMO UTILIZAR:
+# ===================
+# V JULHO 2024 73710
+# 
+#
+# ESTE PASSO A PASSO SERVE PARA DESENVOLVIMENTO NO LINUX:
+# ======================================================
+# 
+gh auth login
+# O comando acima faz a autenticação em sua conta no github
+# pode ser via https ou ssh. Basta seguir os passo
+# sera gerado um códido e um link para confirmar tua id no git.
+# após a confirmação poderá utilizar o git no seu sistema.
+#
+# Exemplo DO COMANDO ACIMA:
+# ========================
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: 116D-2U92 # CÓDIGO DE AUTH
+Press Enter to open github.com in your browser... 
+/usr/bin/xdg-open: 882: www-browser: not found
+/usr/bin/xdg-open: 882: links2: not found
+/usr/bin/xdg-open: 882: elinks: not found
+/usr/bin/xdg-open: 882: links: not found
+/usr/bin/xdg-open: 882: lynx: not found
+/usr/bin/xdg-open: 882: w3m: not found
+xdg-open: no method available for opening 'https://github.com/login/device' # LINK PARA AUTH
+✓ Logged in as "USUÁRIO GITHUB"
+#
+# ========================
+# CRIANDO UM PROJETO REMOTO:
+# =========================
+#
+# EM UM DIRETÓRIO DE SUA PREFERENCIA CRIE UMA PASTA DE SUA PREFERENCIA.
+# 
+git init 
+# COMANDO PARA INICIAR O NOVO REPOSITÓRIO DO PROJETO.
+# QUE DEVE SER EXECUTADO DENTRO DA PASTA DO PROJETO.
+#
+
+touch REDME.md
+# CRIE ESTE ARQUIVO PARA SUBIR NO GIT.
+
+git add README.MD
+# COMANDO QUE ADICIONA O ARQUIVO A AREA DE TRANSFERENCIA PARA O GIT.
+# MAS NÃO O ENVIA. UTILIZANDO "git add ." VOCÊ ADICIONA TUDO DENTRO 
+# DA PASTA CORRENTE.
+
+git status
+# MOSTRA AS MUDAÇÃS A SEREM COMITADAS/COMENTADAS PARA SUBIR NO REPOSITÓRIO.
+
+git commit -m "MENSAGEM DE VERSIONAMENTO"
+# comando utilizado para informar oque foi alterado no projeto.
+git restore PASTA OU ARQUIVO
+# cancela o commit e não envia a atualização
+
+
+git branch -M main
+# COMANDO QUE RENOMEIA A BRANCH ATUAL
+
+# ENTRE NO SEU GIT E CRIE UM PROJETO COM O MESMO NOME DA PASTA CRIADA NO 
+
+ 
+git remote add origin https://repositórioCriado.git
+# ESTE COMANDO ACIMA SINCRONIZA O GIT COM A PASTA DO PROJETO.
+
+git push -u origin main
+# EMPURRA OS COMMITS LOCAL PARA O REPOSITÓRIO DO GIT.
+
+
+# =================================
+# COMANDO PARA CRIAR UAM BRANCH NOVA::
+# ==================================
+# 
+# O que é branch? BRENCH é uma copia do projeto que esta sendo desenvolvido 
+# na pasta principal ou seja o código que será utilizado para a software de produção.
+#
+# Criar uma branch ajuda a não mexer no que esta funcionando e ja testado.
+# após fazer os testes e codar as mudanças, deve se juntar estas atualizações 
+# no código principal. Para atualizar nosso Software.
+#
+# ========================================================
+# Abaixo comandos importantes sobre como utilizar o branch,
+# a nosso favor em nossos projetos:
+# ================================
+#
+git checkout -b "nome-nova-branch/copia do projeto"  
+# O comando acima isto é utilizado para não mexer no que esta funcionando.
+# criando uma copia do projeto para adicionar novas fincionalidades.
+#
+git checkout 
+# Mostra a branche atual no caso de não ter criado uma será a main
+#
+git checkout nome-branch 
+# Muda para a brance criada ou selecionada.
+#
+git push -u origin nome-da-branch
+# isso sobre uma copia do projeto para a branch selecionada
+# sempre que criar uma nova branche executar este comando.
+#
+git checkout main
+git merge nova-branch
+# os comando acima são utilizados para 
+# juntar as alterações feitas em uma outra branch
+# que possua uma atualização para o código principal.
+#
+git push origin main
+# para atualizar o repositório com o código atualizado. 
